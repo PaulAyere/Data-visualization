@@ -78,5 +78,4 @@ function D3Scatter() {
     </div>
   );
 }
-
 export default D3Scatter;
