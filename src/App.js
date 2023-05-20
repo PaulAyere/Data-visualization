@@ -1,7 +1,7 @@
 import './App.css';
 
-import D3Line from './D3Charts/D3Line';
-import D3Scatter from './D3Charts/D3Scatter';
+import D3Line from './D3Line';
+import D3Scatter from './D3Scatter';
 
 function App() {
   return (

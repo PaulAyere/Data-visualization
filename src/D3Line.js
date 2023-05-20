@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import MultilineChart from "../views/MultilineChart";
-import allData from "../db.json";
+import MultilineChart from "./MultilineChart";
+import allData from "./db.json";
 
 const idArray = allData.curves.map((x) => x.id);
 const xyObjArray = allData.curves.map(({ x, y }) =>
