@@ -36,8 +36,7 @@ const colorArray = [
   "#66E64D",
   "#4D80CC",
   "#9900B3",
-  "#E64D66", 
-  // ... other color values ...
+  "#E64D66",   
 ];
 
 const finalObjs = idArray.map((id, i) => ({
@@ -63,18 +62,29 @@ const Legend = ({ data, selectedItems, onChange }) => (
     <div>
       <h3>Select ID to display Line Chart</h3>
     </div>
-    <div className="flex-container">
+    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
       {data.map((d) => (
-        <div className="checkbox" style={{ color: "green" }} key={d.id}>
-          {d.id !== "data1" && (
-            <input
-              type="checkbox"
-              value={d.id}
-              checked={selectedItems.includes(d.id)}
-              onChange={() => onChange(d.id)}
-            />
+        <div
+          key={d.id}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            marginRight: '10px',
+            marginBottom: '10px',
+            color: 'green',
+          }}
+        >
+          {d.id !== 'data1' && (
+            <>
+              <input
+                type="checkbox"
+                value={d.id}
+                checked={selectedItems.includes(d.id)}
+                onChange={() => onChange(d.id)}
+              />
+              <label>{d.id}</label>
+            </>
           )}
-          <label>{d.id}</label>
         </div>
       ))}
     </div>
