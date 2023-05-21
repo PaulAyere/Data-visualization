@@ -1,5 +1,4 @@
 import './App.css';
-
 import D3Line from './D3Line';
 import D3Scatter from './D3Scatter';
 
