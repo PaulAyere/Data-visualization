@@ -81,6 +81,7 @@ const Legend = ({ data, selectedItems, onChange }) => (
                 value={d.id}
                 checked={selectedItems.includes(d.id)}
                 onChange={() => onChange(d.id)}
+                style={{ marginRight: '5px' }}
               />
               <label>{d.id}</label>
             </>
@@ -109,9 +110,42 @@ function D3Line() {
   };
 
   return (
-    <div className="App">
-      <Legend data={legendData} selectedItems={selectedItems} onChange={onChangeSelection} />
-      <MultilineChart data={chartData} dimensions={dimensions} />
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div>
+        <h3 style={{ marginBottom: '10px' }}>Select ID to display Line Chart</h3>
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {legendData.map((d) => (
+          <div
+            key={d.id}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginRight: '10px',
+              marginBottom: '10px',
+              color: 'green',
+            }}
+          >
+            {d.id !== 'data1' && (
+              <>
+                <input
+                  type="checkbox"
+                  value={d.id}
+                  checked={selectedItems.includes(d.id)}
+                  onChange={() => onChangeSelection(d.id)}
+                  style={{ marginRight: '5px' }}
+                />
+                <label>{d.id}</label>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
+      <MultilineChart
+        data={chartData}
+        dimensions={dimensions}
+        style={{ marginTop: '20px' }}
+      />
     </div>
   );
 }

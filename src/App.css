@@ -36,4 +36,28 @@
     transform: rotate(360deg);
   }
 }
+.container {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  /* Styles for screens smaller than 600px */
+  .container {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  /* Styles for screens between 601px and 1024px */
+  .container {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* Styles for screens larger than 1024px */
+  .container {
+    font-size: 18px;
+  }
+}
 
