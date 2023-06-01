@@ -57,49 +57,11 @@ const dimensions = {
   },
 };
 
-const Legend = ({ data, selectedItems, onChange }) => (
-  <div>
-    <div>
-      <h3>Select ID to display Line Chart</h3>
-    </div>
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-      {data.map((d) => (
-        <div
-          key={d.id}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            marginRight: '10px',
-            marginBottom: '10px',
-            color: 'green',
-          }}
-        >
-          {d.id !== 'data1' && (
-            <>
-              <input
-                type="checkbox"
-                value={d.id}
-                checked={selectedItems.includes(d.id)}
-                onChange={() => onChange(d.id)}
-                style={{ marginRight: '5px' }}
-              />
-              <label>{d.id}</label>
-            </>
-          )}
-        </div>
-      ))}
-    </div>
-  </div>
-);
-
 function D3Line() {
   const [selectedItems, setSelectedItems] = useState([]);
 
   const legendData = finalObjs.slice(1);
-  const chartData = [
-    finalObjs[0],
-    ...legendData.filter((d) => selectedItems.includes(d.id)),
-  ];
+  const chartData = legendData.filter((d) => selectedItems.includes(d.id));
 
   const onChangeSelection = (id) => {
     const newSelectedItems = selectedItems.includes(id)

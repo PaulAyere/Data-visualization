@@ -27,7 +27,7 @@ const MultilineChart = ({ data = [], dimensions = {} }) => {
 
     const line = d3.line().x((d) => xScale(d.x)).y((d) => yScale(d.y));
 
-    const lines = chart
+    chart
       .selectAll(".line")
       .data(data)
       .enter()
@@ -51,7 +51,7 @@ const MultilineChart = ({ data = [], dimensions = {} }) => {
       });
 
     setPrevItems(data.map(({ id }) => id));
-  }, [data]);
+  }, [data, dimensions, height, margin.bottom, margin.left, margin.top, prevItems, width]);
 
   return <svg ref={svgRef} width={svgWidth} height={svgHeight} />;
 };
