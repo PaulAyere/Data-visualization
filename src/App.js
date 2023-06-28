@@ -1,6 +1,7 @@
 import './App.css';
 import D3Line from './D3Line';
 import D3Scatter from './D3Scatter';
+import CurveChart from './CurveChart';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
     <br /> <br />
     <br /> <br />
     <D3Line/>
+    <CurveChart/>
     </div>
   );
 }
